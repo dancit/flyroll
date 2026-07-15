@@ -1,0 +1,5 @@
+Grounding completo. Tre fatti hanno già cambiato la forma del problema prima ancora di ideare:
+
+Il segmento PMI è già occupato e capitalizzato: Jet HR ha raccolto ~€41,7M facendo esattamente "piattaforma + consulente del lavoro partner", e PayFit (unicorno da €785M ARR) è entrata e uscita dall'Italia. La riserva di legge (L. 12/1979) e i 900+ CCNL sono il motivo.
+Il segmento domestico ha un problema di prezzo, non di bisogno: 902.000 famiglie datrici, 48,8% di irregolarità, ma i competitor italiani (Domestique 50€/anno, WebColf 60€, CAF 130-180€) hanno già commoditizzato il prezzo — mentre l'analogo USA (HomePay di Care.com, comprata a $55M) vende lo stesso servizio a 700-900$/anno. Il divario di willingness-to-pay è la vera domanda strategica.
+Il concorrente più pericoloso è lo Stato: in Francia il CESU fa gratis la busta paga domestica, e l'Italia sta andando nella stessa direzione (riforma ritenuta graduata + piattaforma INPS).
