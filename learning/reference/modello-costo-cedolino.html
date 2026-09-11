@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Modello di costo del cedolino</title>
+<link rel="stylesheet" href="../assets/corso.css">
+</head>
+<body>
+<main class="page" data-modello>
+
+<header class="masthead">
+  <p class="course"><a href="../index.html">Anatomia del cedolino</a>, scheda di riferimento</p>
+  <h1>Modello di costo del cedolino</h1>
+  <p class="lede">Quanto costa oggi produrre un cedolino, quanto ne resta al prezzo di mercato, e come cambierebbe con Flyroll. Ogni numero dice se è un dato, un'ipotesi o una derivazione.</p>
+  <p class="meta">Aggiornata l'11 settembre 2026. Nasce dalla <a href="../lessons/0001-dove-finisce-la-macchina.html">lezione 1</a>.</p>
+</header>
+
+<h2>Le ipotesi</h2>
+
+<p><strong>Dato</strong> vuol dire che viene da una fonte citata. <strong>Ipotesi</strong> vuol dire che è una scelta nostra, da verificare. <strong>Derivazione</strong> vuol dire che l'abbiamo calcolata da altri numeri.</p>
+
+<div class="tabulato-wrap wide">
+<table class="tabulato">
+  <thead><tr><th>Parametro</th><th class="num">Valore</th><th>Tipo</th><th>Da dove viene</th></tr></thead>
+  <tbody>
+    <tr><td class="step">Cedolini al mese per addetto senior</td><td class="num">300</td><td class="tipo">ipotesi</td><td class="small">Scelta dell'utente su una triangolazione: Deloitte EMEA 311 per addetto (<a href="https://www.newmoney.gr/wp-content/uploads/2021/04/us-deloitte-payroll-benchmarking-survey-report.pdf">p. 34</a>), studi francesi 250-300 (<a href="https://culture-rh.com/salaire-gestionnaire-paie/">Culture RH</a>), Jet HR 200+ (<a href="https://www.jethr.com/join/payroll-specialist">annuncio</a>)</td></tr>
+    <tr><td class="step">Minuti lavorati all'anno</td><td class="num">102.000</td><td class="tipo">ipotesi</td><td class="small">1.700 ore, dal <a href="../../docs/ideation/2026-07-14-payroll-service-ai-native-italia-ideation.md">documento di ideazione</a>; l'OCSE dà circa 1.734 ore per l'Italia nel 2023 (<a href="https://www.theglobaleconomy.com/Italy/hours_worked/">via TheGlobalEconomy</a>)</td></tr>
+    <tr><td class="step">RAL dell'addetto senior</td><td class="num">32.000 €</td><td class="tipo">ipotesi</td><td class="small">Tra il minimo CCNL Studi Professionali livello 1, circa 30.400 € su 14 mensilità (<a href="https://www.lexplain.it/tabelle-retributive-ccnl-studi-professionali-2024-2026/">tabelle</a>), e gli esperti di <a href="https://it.talent.com/salary?job=paghe">Talent.com</a>, 35.100 €</td></tr>
+    <tr><td class="step">Moltiplicatore RAL → costo azienda</td><td class="num">1,37</td><td class="tipo">dato</td><td class="small">Contributi circa 30% più TFR 6,91%, stima standard (<a href="https://www.calcolonetto.it/costo-azienda/">Calcolonetto</a>)</td></tr>
+    <tr><td class="step">Software per cedolino, oggi</td><td class="num">3,80 €</td><td class="tipo">derivazione</td><td class="small">Spesa digitale media di uno studio di consulenti 14.700 € (<a href="https://www.osservatori.net/comunicato/professionisti-e-innovazione-digitale/spesa-tecnologie-digitali-studi-professionali-in-italia/">Politecnico di Milano</a>) ÷ (323 cedolini × 12). 323 = 8,5 milioni di rapporti ÷ 26.308 iscritti (<a href="https://www.ansa.it/sito/notizie/economia/pmi/2024/01/11/professioni-26.308-iscritti-a-ordini-dei-consulenti-del-lavoro_f9414b67-fb44-4e87-90c9-f812e7b7e946.html">CNO 2024</a>). Probabilmente per eccesso</td></tr>
+    <tr><td class="step">Prezzo di mercato per cedolino</td><td class="num">10-25 €</td><td class="tipo">ipotesi</td><td class="small">Benchmark dell'utente, decrescente con i volumi; coerente con l'ideazione (studi 20-50 €, piattaforme 9-15 €)</td></tr>
+    <tr><td class="step">Costo al minuto del consulente</td><td class="num">0,59 €</td><td class="tipo">derivazione</td><td class="small">Reddito medio vicino a 60.000 € (<a href="https://www.sbircialanotizia.it/articoli/2026/05/23/cdl-zero-a7f3k/">ENPACL, 2026</a>) ÷ 102.000 minuti</td></tr>
+    <tr><td class="step">Secondi umani per cedolino con Flyroll</td><td class="num">25</td><td class="tipo">ipotesi</td><td class="small">Ideazione: 5 minuti per rapporto all'anno se un consulente segue 20.000 rapporti, ÷ 12 cedolini</td></tr>
+    <tr><td class="step">Software e agenti per cedolino con Flyroll</td><td class="num">3,80 €</td><td class="tipo">ipotesi</td><td class="small">Segnaposto: sconosciuto. Uguale al software di oggi finché non lo misuriamo</td></tr>
+  </tbody>
+</table>
+</div>
+
+<h2>Calcola</h2>
+
+<p>Cambia un'ipotesi e guarda come si sposta la ripartizione. I pulsanti impostano i tre prezzi di riferimento.</p>
+
+<form class="calcolatore wide" autocomplete="off">
+  <fieldset>
+    <legend>Lo studio oggi</legend>
+    <div class="calc-campi">
+      <label>Cedolini al mese per addetto<input name="ced" type="number" inputmode="decimal" min="1" step="10" value="300"></label>
+      <label>Minuti lavorati all'anno<input name="minuti" type="number" inputmode="decimal" min="1" step="1000" value="102000"></label>
+      <label>RAL dell'addetto (€)<input name="ral" type="number" inputmode="decimal" min="0" step="500" value="32000"></label>
+      <label>Moltiplicatore costo azienda<input name="molt" type="number" inputmode="decimal" min="1" step="0.01" value="1.37"></label>
+      <label>Software per cedolino (€)<input name="sw" type="number" inputmode="decimal" min="0" step="0.1" value="3.8"></label>
+      <label>Prezzo per cedolino (€)<input name="prezzo" type="number" inputmode="decimal" min="0" step="0.5" value="17.5"></label>
+    </div>
+  </fieldset>
+  <fieldset>
+    <legend>Flyroll, ipotesi</legend>
+    <div class="calc-campi">
+      <label>Secondi umani per cedolino<input name="secF" type="number" inputmode="decimal" min="0" step="5" value="25"></label>
+      <label>Costo al minuto del consulente (€)<input name="euroMin" type="number" inputmode="decimal" min="0" step="0.01" value="0.59"></label>
+      <label>Software e agenti per cedolino (€)<input name="swF" type="number" inputmode="decimal" min="0" step="0.1" value="3.8"></label>
+    </div>
+  </fieldset>
+  <div class="calc-azioni">
+    <button type="button" data-prezzo="10">Prezzo 10 €</button>
+    <button type="button" data-prezzo="17.5">Prezzo 17,50 €</button>
+    <button type="button" data-prezzo="25">Prezzo 25 €</button>
+    <button type="button" data-ripristina>Ripristina le ipotesi</button>
+  </div>
+
+  <div class="ripartizione" data-ripartizione aria-live="polite"></div>
+  <div class="rip-legenda"><span class="l-pers">Personale</span><span class="l-sw">Software</span><span class="l-resto">Resta per consulente, struttura e margine</span><span class="l-prezzo">Prezzo</span></div>
+
+  <div class="tabulato-wrap wide">
+  <table class="tabulato">
+    <thead><tr><th>Risultato</th><th class="num">Studio oggi</th><th class="num">Flyroll</th></tr></thead>
+    <tbody>
+      <tr><td class="step">Minuti umani per cedolino</td><td class="num" data-out="minCed"></td><td class="num">vedi secondi sopra</td></tr>
+      <tr><td class="step">Personale per cedolino</td><td class="num" data-out="pers"></td><td class="num" data-out="persF"></td></tr>
+      <tr><td class="step">Costo diretto per cedolino</td><td class="num" data-out="dir"></td><td class="num" data-out="dirF"></td></tr>
+      <tr><td class="step">Ripartizione del costo diretto</td><td class="num" data-out="quota"></td><td class="num" data-out="quotaF"></td></tr>
+      <tr><td class="step">Resta al prezzo scelto</td><td class="num" data-out="resto"></td><td class="num" data-out="restoF"></td></tr>
+      <tr><td class="step">Cedolini a pareggio per addetto</td><td class="num" data-out="pareggio"></td><td class="num">non applicabile</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p class="barre-nota">Costo aziendale dell'addetto: <span data-out="costoAz"></span>, cioè <span data-out="euroMinAddetto"></span> al minuto. Compressione del tempo umano rispetto a oggi: <span data-out="compressione"></span>.</p>
+</form>
+
+<h2>Ai tre prezzi del mercato</h2>
+
+<p>Con le ipotesi di partenza. Il costo diretto dello studio è di 15,98 € a cedolino.</p>
+
+<div class="tabulato-wrap wide">
+<table class="tabulato">
+  <thead><tr><th>Per cedolino, al mese</th><th class="num">A 10 €</th><th class="num">A 17,50 €</th><th class="num">A 25 €</th></tr></thead>
+  <tbody>
+    <tr><td class="step"><span class="chi umano">umano</span> Personale dello studio</td><td class="num">12,18 €</td><td class="num">12,18 €</td><td class="num">12,18 €</td></tr>
+    <tr><td class="step"><span class="chi macchina">macchina</span> Software</td><td class="num">3,80 €</td><td class="num">3,80 €</td><td class="num">3,80 €</td></tr>
+    <tr><td class="step">Resta per consulente, struttura e margine</td><td class="num negativo">−5,98 €</td><td class="num">1,52 €</td><td class="num">9,02 €</td></tr>
+    <tr><td class="step">Quota del prezzo che resta</td><td class="num negativo">−60%</td><td class="num">9%</td><td class="num">36%</td></tr>
+    <tr><td class="step">Cedolini a pareggio per addetto</td><td class="num">590 al mese</td><td class="num">267 al mese</td><td class="num">173 al mese</td></tr>
+    <tr><td class="step">Minuti per cedolino a pareggio</td><td class="num">14</td><td class="num">32</td><td class="num">49</td></tr>
+  </tbody>
+</table>
+</div>
+
+<p>Il prezzo scende con i volumi perché su un cliente grande, con un solo contratto e flussi puliti, l'addetto produce molti più cedolini l'ora. A 10 € serve un addetto da circa 590 cedolini al mese: quasi il doppio del riferimento.</p>
+
+<h2>La ripartizione finale</h2>
+
+<div class="tabulato-wrap wide">
+<table class="tabulato">
+  <thead><tr><th>Costo diretto per cedolino</th><th class="num">Personale</th><th class="num">Software</th><th class="num">Totale</th><th class="num">Quota personale</th></tr></thead>
+  <tbody>
+    <tr><td class="step">Studio oggi</td><td class="num">12,18 €</td><td class="num">3,80 €</td><td class="num">15,98 €</td><td class="num">76%</td></tr>
+    <tr><td class="step">Flyroll, se reggono i 25 secondi</td><td class="num">0,25 €</td><td class="num">3,80 €</td><td class="num">4,05 €</td><td class="num">6%</td></tr>
+  </tbody>
+</table>
+</div>
+
+<p class="timbro">Oggi un cedolino è per tre quarti persone. Con Flyroll sarebbe quasi tutto software: il margine si decide sul costo degli agenti.</p>
+
+<p>Cosa il modello non contiene ancora:</p>
+<ul>
+  <li>il tempo del consulente titolare dello studio (controlli, firma, consulenza): oggi sta dentro «resta per consulente, struttura e margine»;</li>
+  <li>la struttura: sede, assicurazione professionale, amministrazione;</li>
+  <li>tredicesima e quattordicesima, che aggiungono cedolini senza aggiungere molto lavoro;</li>
+  <li>la differenza tra clienti: una micro-impresa con tre dipendenti costa per cedolino molto più di un'azienda da cento;</li>
+  <li>il costo reale degli agenti AI per cedolino, che per Flyroll è la variabile decisiva.</li>
+</ul>
+
+<h2>Da verificare con i consulenti</h2>
+<ol>
+  <li>Quanti cedolini al mese gestisce in autonomia un suo addetto senior, e su quante aziende?</li>
+  <li>Quanto paga il software paghe, e con quale formula: a cedolino, a canone, a utente?</li>
+  <li>Quante ore al mese passa lei, titolare, su pratiche paghe che l'addetto non può chiudere da solo?</li>
+</ol>
+
+<nav class="navcorso" aria-label="Navigazione del corso">
+  <a href="../lessons/0001-dove-finisce-la-macchina.html">Lezione 1: dove finisce la macchina</a>
+  <a href="../index.html">Indice del corso</a>
+</nav>
+
+</main>
+<script src="../assets/modello-costo.js"></script>
+</body>
+</html>

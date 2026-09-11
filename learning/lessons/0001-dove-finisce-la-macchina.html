@@ -1,0 +1,222 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dove finisce la macchina</title>
+<link rel="stylesheet" href="../assets/corso.css">
+</head>
+<body>
+<main class="page">
+
+<header class="masthead">
+  <p class="course"><a href="../index.html">Anatomia del cedolino</a>, lezione 1</p>
+  <h1>Dove finisce la macchina</h1>
+  <p class="lede">Il calcolo del cedolino è automatico da decenni. Il lavoro umano sta prima e dopo il calcolo, ed è lì che si decide il margine di Flyroll.</p>
+  <p class="meta">Circa 15 minuti di lettura, poi gli esercizi. Segmento: PMI. Aggiornata l'11 settembre 2026.</p>
+</header>
+
+<h2>Perché partire da qui</h2>
+
+<p>Oggi un addetto paghe senior gestisce circa <strong>300 cedolini al mese</strong>. Nessuna fonte italiana lo pubblica, ma fonti indipendenti convergono su quel valore.<span class="sn-ref"></span><span class="sn">Deloitte: 311 dipendenti serviti per addetto paghe in EMEA (<a href="https://www.newmoney.gr/wp-content/uploads/2021/04/us-deloitte-payroll-benchmarking-survey-report.pdf">p. 34</a>). Studi contabili francesi: 250-300 buste al mese (<a href="https://culture-rh.com/salaire-gestionnaire-paie/">Culture RH</a>). Jet HR chiede la «gestione autonoma di 200+ cedolini» (<a href="https://www.jethr.com/join/payroll-specialist">annuncio</a>). È una triangolazione, da confermare con i consulenti della Traccia A.</span> Sono 3.600 cedolini l'anno. Con circa 1.700 ore lavorate, cioè 102.000 minuti, fanno <strong>circa 28 minuti di persona per cedolino</strong>, tutto compreso.</p>
+
+<p>Nell'ideazione abbiamo messo alla prova un'<em>ipotesi</em>: un solo consulente che segue 20.000 rapporti. Il budget sarebbe di 5 minuti umani per rapporto all'anno, cioè circa <strong>25 secondi per cedolino</strong>.<span class="sn-ref"></span><span class="sn">Ipotesi, non decisione. Le 1.700 ore e i 20.000 rapporti sono assunzioni del <a href="../../docs/ideation/2026-07-14-payroll-service-ai-native-italia-ideation.md">documento di ideazione</a>, non dati: con 2.000 rapporti il budget diventa 50 minuti. I 25 secondi sono una nostra derivazione (5 minuti ÷ 12 cedolini; con tredicesima e quattordicesima i cedolini sono di più e i secondi di meno).</span> Passare da 28 minuti a 25 secondi vuol dire comprimere il tempo umano di circa 68 volte.</p>
+
+<p>Per capire se è possibile, e dove, bisogna vedere il ciclo scomposto in step e chiedersi, per ognuno, chi lo fa oggi. È la mappa su cui costruirai il modello dei costi e con cui leggerai i competitor.</p>
+
+<h2>Il ciclo mensile in sette step</h2>
+
+<p>Ogni mese, per ogni azienda cliente, lo studio o l'ufficio paghe ripete questa sequenza. La colonna a destra dice chi fa il lavoro <em>nelle soluzioni di mercato di oggi</em>.<span class="sn-ref"></span><span class="sn">La classificazione è una sintesi di questa lezione sulle fonti citate, non una tassonomia ufficiale. Andrà verificata sul campo con i consulenti della Traccia A.</span></p>
+
+<div class="tabulato-wrap wide">
+<table class="tabulato">
+  <thead>
+    <tr><th class="n">#</th><th>Step</th><th>Cosa succede</th><th>Chi lo fa oggi</th></tr>
+  </thead>
+  <tbody>
+    <tr><td class="n">1</td><td class="step">Raccolta presenze e variabili</td><td>Ore, straordinari, ferie, permessi, trasferte, premi. Arrivano da un rilevatore presenze, oppure per email, Excel e telefonate.</td><td><span class="chi misto">misto</span></td></tr>
+    <tr><td class="n">2</td><td class="step">Eventi del mese</td><td>Malattia, maternità, infortunio. Il certificato si consulta sul portale INPS; tradurlo in giorni e indennità secondo il contratto è un altro lavoro.</td><td><span class="chi umano">umano</span></td></tr>
+    <tr><td class="n">3</td><td class="step">Variazioni di anagrafica e contratto</td><td>Assunzioni, cessazioni, passaggi di livello, rinnovi del CCNL con eventuali arretrati.</td><td><span class="chi misto">misto</span></td></tr>
+    <tr><td class="n">4</td><td class="step">Calcolo del cedolino</td><td>Lordo, contributi, ritenute fiscali, netto: regole note applicate ai dati del mese.</td><td><span class="chi macchina">macchina</span></td></tr>
+    <tr><td class="n">5</td><td class="step">Controllo e quadratura</td><td>Verificare che i conti tornino: confronto con il mese prima, casi anomali, totali.</td><td><span class="chi misto">misto</span></td></tr>
+    <tr><td class="n">6</td><td class="step">Emissione e invii</td><td>Cedolino ai dipendenti; Libro Unico del Lavoro (LUL) entro la fine del mese successivo; F24 entro il 16; flusso Uniemens all'INPS entro la fine del mese successivo.</td><td><span class="chi macchina">macchina</span></td></tr>
+    <tr><td class="n">7</td><td class="step">Domande e assistenza</td><td>Dipendenti e cliente chiedono spiegazioni: perché il netto è cambiato, quando arriva l'arretrato.</td><td><span class="chi umano">umano</span></td></tr>
+  </tbody>
+</table>
+</div>
+
+<p>Da dove vengono queste etichette. Sul calcolo e sugli invii i gestionali italiani sono espliciti: TeamSystem dichiara l'aggiornamento automatico di oltre 200 CCNL, l'import dei flussi mensili e l'integrazione nativa con Uniemens, F24, CU e 770.<span class="sn-ref"></span><span class="sn"><a href="https://www.teamsystem.com/hr/teamsystem-hr/funzionalita/paghe/">TeamSystem HR, pagina Paghe</a>. Fonte di parte: dice cosa il vendor dichiara, non quanto funziona.</span> Zucchetti dichiara tabelle e CCNL aggiornati dal vendor e un controllo automatico di anagrafiche e cedolini che segnala le anomalie a una persona. È per questo che il controllo è misto.<span class="sn-ref"></span><span class="sn"><a href="https://www.zucchetti.it/it/cms/soluzioni/software-hr-zucchetti/paghe/software-buste-paga/software-paghe.html">Zucchetti, Software paghe</a>.</span> Per la malattia, il datore o il consulente delegato consulta gli attestati sul portale INPS.<span class="sn-ref"></span><span class="sn"><a href="https://www.inps.it/it/it/dettaglio-scheda.it.schede-servizio-strumento.schede-servizi.consultazione-degli-attestati-di-malattia-telematici.html">INPS, consultazione degli attestati di malattia telematici</a>.</span> Le scadenze del punto 6 sono di legge.<span class="sn-ref"></span><span class="sn">LUL: <a href="https://www.normattiva.it/uri-res/N2Ls?urn%3Anir%3Astato%3Adecreto.legge%3A2008-06-25%3B112%7Eart39%21vig=">D.L. 112/2008 art. 39</a>, termine modificato dal D.L. 201/2011. Uniemens: <a href="https://www.inps.it/it/it/dettaglio-scheda.it.schede-servizio-strumento.schede-servizi.50252.trasmissione-uniemens-per-datori-di-lavoro-di-aziende-private.html">INPS</a>. F24: <a href="https://www.agenziaentrate.gov.it/portale/documents/20143/2288333/DECRETO_LEGISLATIVO_241_1997_ART_17.pdf">D.Lgs. 241/1997</a>.</span></p>
+
+<p>Fuori da questo ciclo restano gli adempimenti legati agli eventi (comunicazioni di assunzione e cessazione) e quelli annuali (CU, 770, autoliquidazione INAIL). Li vedremo in un'altra lezione.</p>
+
+<h2>Dove va davvero il tempo</h2>
+
+<p>Nessuno ha pubblicato come si dividono i 28 minuti tra gli step in uno studio italiano. Il dato pubblico più vicino è un sondaggio Deloitte che ha chiesto al personale paghe come divide il proprio tempo in un mese.<span class="sn-ref"></span><span class="sn"><a href="https://www.newmoney.gr/wp-content/uploads/2021/04/us-deloitte-payroll-benchmarking-survey-report.pdf">Deloitte Global Payroll Benchmarking Survey</a>, p. 17. Rispondenti 2020; 750+ organizzazioni in 55 paesi, media di circa 6.700 dipendenti (p. 4, 6).</span></p>
+
+<div class="barre wide" role="img" aria-label="Quota media di tempo mensile del personale paghe per attività, sondaggio Deloitte 2020: esecuzione del ciclo 27%, quadrature e controlli 24%, inserimento dati 20%, domande dei dipendenti 14%, altro 13%, supporto tecnico e gestione file 10%, miglioramento del processo 8%.">
+  <div class="riga" title="Run payroll: 27%"><span class="nome">Eseguire il ciclo paghe</span><span class="traccia"><span class="barra" style="--v:27"></span><span class="val">27%</span></span></div>
+  <div class="riga" title="Reconciliation, audits, and controls: 24%"><span class="nome">Quadrature, verifiche e controlli</span><span class="traccia"><span class="barra bordo" style="--v:24"></span><span class="val">24%</span></span></div>
+  <div class="riga" title="Data entry: 20%"><span class="nome">Inserimento dati</span><span class="traccia"><span class="barra bordo" style="--v:20"></span><span class="val">20%</span></span></div>
+  <div class="riga" title="Answering employee and other inquiries: 14%"><span class="nome">Domande di dipendenti e altri</span><span class="traccia"><span class="barra bordo" style="--v:14"></span><span class="val">14%</span></span></div>
+  <div class="riga" title="Other: 13%"><span class="nome">Altro</span><span class="traccia"><span class="barra" style="--v:13"></span><span class="val">13%</span></span></div>
+  <div class="riga" title="Technical support and file management: 10%"><span class="nome">Supporto tecnico e gestione file</span><span class="traccia"><span class="barra" style="--v:10"></span><span class="val">10%</span></span></div>
+  <div class="riga" title="Process improvement activities: 8%"><span class="nome">Miglioramento del processo</span><span class="traccia"><span class="barra" style="--v:8"></span><span class="val">8%</span></span></div>
+</div>
+<p class="barre-nota wide"><span class="campione"></span>In viola le attività ai bordi del calcolo. Sono medie delle risposte, quindi non sommano a 100.</p>
+
+<p>Tre delle quattro voci più pesanti non sono il calcolo: sono l'inserimento dei dati, i controlli e le domande. E anche «eseguire il ciclo» vale il 27%: il calcolo è automatico, ma lanciarlo, sorvegliarlo e rilanciarlo no. Deloitte stessa definisce queste attività «largely manual».</p>
+
+<p>Prendi questo grafico come un ordine di grandezza, non come una misura. Il campione è fatto di grandi aziende con un ufficio paghe interno, nel 2020, prima dell'AI generativa. Uno studio di consulenti italiano con cinquanta piccoli clienti avrà un'altra forma. Scoprirla è compito della Traccia A.</p>
+
+<h2>Quanto costano quei 28 minuti</h2>
+
+<p>Un addetto paghe senior di studio ha una retribuzione lorda di circa 32.000 € l'anno<span class="sn-ref"></span><span class="sn">Ipotesi centrale tra il minimo del CCNL Studi Professionali di livello 1, circa 30.400 € su 14 mensilità (<a href="https://www.lexplain.it/tabelle-retributive-ccnl-studi-professionali-2024-2026/">tabelle 2024-2026</a>), e gli addetti paghe esperti, 35.100 € (<a href="https://it.talent.com/salary?job=paghe">Talent.com</a>, 2.643 stipendi, 2026).</span> e costa allo studio circa 1,37 volte tanto, 43.800 €.<span class="sn-ref"></span><span class="sn">Contributi a carico del datore circa 30% più TFR 6,91% (<a href="https://www.calcolonetto.it/costo-azienda/">Calcolonetto</a>). Il valore esatto dipende da CCNL, INAIL e incentivi.</span> Diviso per 3.600 cedolini fa <strong>circa 12 € di personale per cedolino</strong>, cioè circa 43 centesimi al minuto.</p>
+
+<p>Il software pesa molto meno. La spesa digitale media di uno studio di consulenti del lavoro è di 14.700 € l'anno, che fanno <strong>circa 3,8 € a cedolino</strong>.<span class="sn-ref"></span><span class="sn">Spesa: <a href="https://www.osservatori.net/comunicato/professionisti-e-innovazione-digitale/spesa-tecnologie-digitali-studi-professionali-in-italia/">Osservatorio Professionisti e Innovazione Digitale, Politecnico di Milano</a>, dato 2025. Il valore per cedolino è una nostra derivazione: 14.700 € ÷ (323 cedolini × 12), dove 323 = 8,5 milioni di rapporti ÷ 26.308 iscritti (<a href="https://www.ansa.it/sito/notizie/economia/pmi/2024/01/11/professioni-26.308-iscritti-a-ordini-dei-consulenti-del-lavoro_f9414b67-fb44-4e87-90c9-f812e7b7e946.html">CNO, gennaio 2024</a>). Probabilmente è per eccesso: la spesa include tutta l'informatica dello studio, non solo le paghe.</span> Il costo diretto di un cedolino è quindi circa 16 €, per tre quarti persone.</p>
+
+<p>Messo accanto ai prezzi di mercato, da 10 a 25 € a cedolino secondo i volumi:</p>
+
+<div class="tabulato-wrap">
+<table class="tabulato">
+  <thead>
+    <tr><th>Per cedolino, al mese</th><th class="num">A 10 €</th><th class="num">A 17,50 €</th><th class="num">A 25 €</th></tr>
+  </thead>
+  <tbody>
+    <tr><td class="step"><span class="chi umano">umano</span> Personale dello studio</td><td class="num">12,18 €</td><td class="num">12,18 €</td><td class="num">12,18 €</td></tr>
+    <tr><td class="step"><span class="chi macchina">macchina</span> Software</td><td class="num">3,80 €</td><td class="num">3,80 €</td><td class="num">3,80 €</td></tr>
+    <tr><td class="step">Resta per consulente, struttura e margine</td><td class="num negativo">−5,98 €</td><td class="num">1,52 €</td><td class="num">9,02 €</td></tr>
+  </tbody>
+</table>
+</div>
+
+<p>A 10 € lo studio tipo perde soldi a ogni cedolino. Il conto torna solo se l'addetto ne fa circa 590 al mese, cioè 14 minuti l'uno: è per questo che il prezzo scende con i volumi, perché su un cliente grande con un solo contratto si lavora molto più in fretta. A 25 €, invece, un terzo del prezzo resta per remunerare il consulente e lo studio.</p>
+
+<p>Se l'ipotesi dei 25 secondi reggesse, il personale scenderebbe a circa 25 centesimi a cedolino anche pagando il tempo di un consulente, e non di un addetto.<span class="sn-ref"></span><span class="sn">Costo al minuto del consulente stimato dal reddito medio della categoria, vicino a 60.000 € (<a href="https://www.sbircialanotizia.it/articoli/2026/05/23/cdl-zero-a7f3k/">ENPACL, 2026</a>): 60.000 € ÷ 102.000 minuti ≈ 0,59 € al minuto.</span> La ripartizione si rovescerebbe: da circa 76% persone e 24% software a circa 6% e 94%. <strong>Il margine di Flyroll dipenderebbe allora quasi solo dal costo del software e degli agenti, che oggi non conosciamo.</strong> Tutti i numeri, con le ipotesi modificabili, sono nel <a href="../reference/modello-costo-cedolino.html">modello di costo del cedolino</a>.</p>
+
+<h2>Tre ragioni per cui uno step resta umano</h2>
+
+<p>Se guardi gli step viola o misti, il lavoro umano nasce sempre da una di queste tre cause.</p>
+
+<p><strong>Input sporco.</strong> Il dato arriva da fuori, incompleto o non strutturato: un'email con «6 ore di straordinario» senza i giorni. Nel sondaggio Deloitte le transazioni in ritardo o sbagliate che arrivano dall'esterno sono indicate come la prima causa di errore in busta paga.<span class="sn-ref"></span><span class="sn">Deloitte, p. 12 e 16. Ironia del dato: sono anche le metriche meno tracciate (14% e 13% dei rispondenti).</span></p>
+
+<p><strong>Giudizio.</strong> Serve interpretare una norma o un contratto: a chi spettano gli arretrati di un rinnovo, come si indennizza una malattia lunga. Qui c'è anche un confine di legge. La L. 12/1979 riserva gli adempimenti di lavoro ai professionisti abilitati e consente ai centri di elaborazione dati solo «le operazioni di calcolo e stampa» e «le attività strumentali ed accessorie», sempre sotto professionisti iscritti.<span class="sn-ref"></span><span class="sn"><a href="https://www.lavoro.gov.it/documenti-e-norme/normative/Documents/anniPrecedenti/19790111_L_12.pdf">L. 12/1979</a>, art. 1 c. 1 e c. 5; art. 2 c. 3. L'espressione «meccanico-esecutivo» che si sente spesso non è nel testo della legge: viene dalla prassi e dall'interpretazione.</span></p>
+
+<p><strong>Eccezione.</strong> Il caso esce dalla regola: il flusso scartato dall'INPS, il cedolino da rettificare, la dipendente che chiede perché il netto è sceso.</p>
+
+<p class="timbro">Il calcolo è della macchina. Il costo umano sta ai bordi: nell'input sporco, nel giudizio, nelle eccezioni.</p>
+
+<h2>Cosa significa per Flyroll</h2>
+
+<p>Un motore che calcola meglio non sposta i 28 minuti. Lo spazio per l'AI è in tre punti: trasformare l'input sporco in dato pulito prima che una persona lo tocchi; preparare il giudizio in modo che il consulente decida in un minuto invece che in dieci (decidere resta suo, per legge); chiudere le eccezioni prima che arrivino a qualcuno.</p>
+
+<p>È anche la lente con cui leggere i competitor. Non chiedere «calcolate bene?», perché lo fanno tutti; chiedi «cosa fate ai bordi?». ADP dichiara fino a 30 minuti risparmiati per ciclo grazie al controllo automatico delle anomalie.<span class="sn-ref"></span><span class="sn"><a href="https://www.prnewswire.com/news-releases/adp-unveils-ai-features-built-for-hrs-biggest-challenges-at-innovation-day-2025-302545522.html">ADP, Innovation Day, 3 settembre 2025</a>. Dato dichiarato dai primi clienti, non verificato da terzi.</span> Jet HR, invece, affida al consulente partner le «elaborazioni residue» e i casi straordinari: ispezioni, controversie, licenziamenti, cassa integrazione.<span class="sn-ref"></span><span class="sn"><a href="https://www.jethr.com/consulente-del-lavoro">Jet HR, pagina Consulente del lavoro</a>. Il partner principale è Orion STP.</span> In entrambi i casi, il bordo è il punto in cui il prodotto si differenzia.</p>
+
+<hr>
+
+<h2>Esercizi</h2>
+<p class="esercizi-intro">Rispondi senza tornare su. Conta il primo tentativo: è quello che dice cosa ricordi davvero.</p>
+
+<div class="q" data-tipo="ordina">
+  <p class="q-prompt"><span class="num">1.</span>Segui un dato dall'email del cliente fino all'INPS. Metti gli eventi in ordine.</p>
+  <ol class="q-rows">
+    <li>Il cliente manda le ore di straordinario del mese</li>
+    <li>L'addetto completa il dato e lo inserisce nel gestionale</li>
+    <li>Il gestionale calcola il cedolino</li>
+    <li>Il controllo automatico segnala un netto anomalo, l'addetto verifica</li>
+    <li>Si emettono cedolino, LUL, F24 e Uniemens</li>
+    <li>La dipendente riceve il cedolino e chiede spiegazioni</li>
+  </ol>
+</div>
+
+<div class="q" data-tipo="classifica" data-categorie="umano,macchina,misto">
+  <p class="q-prompt"><span class="num">2.</span>Chi fa questo lavoro nelle soluzioni di oggi?</p>
+  <ul class="q-rows">
+    <li data-giusta="umano" data-perche="input sporco. Prima del calcolo qualcuno deve richiamare il cliente e completare il dato.">Il cliente scrive «Marco ha fatto 6 ore di straordinario» senza dire in quali giorni</li>
+    <li data-giusta="macchina" data-perche="è calcolo: regole note applicate ai dati del mese.">Il gestionale applica l'aliquota contributiva all'imponibile del mese</li>
+    <li data-giusta="umano" data-perche="giudizio. Il vendor aggiorna le tabelle, ma applicare il rinnovo al caso concreto è interpretazione, cioè attività del professionista.">Il CCNL è stato rinnovato con arretrati da marzo: stabilire a chi spettano e da quando</li>
+    <li data-giusta="macchina" data-perche="import di un flusso strutturato, dichiarato nativo dai gestionali. Diventa umano solo se il file è sbagliato.">Il file del rilevatore presenze viene importato nel gestionale</li>
+    <li data-giusta="misto" data-perche="la macchina filtra, la persona spiega e corregge solo i casi segnalati. È lo schema dell'anomaly detection di ADP.">Il gestionale segnala i netti molto diversi dal mese scorso e l'addetto verifica i casi segnalati</li>
+    <li data-giusta="macchina" data-perche="aggiornamento centralizzato: TeamSystem dichiara oltre 200 CCNL aggiornati senza intervento manuale.">Il vendor aggiorna i minimi tabellari del CCNL in tutti i gestionali</li>
+    <li data-giusta="umano" data-perche="eccezione. Qualcuno deve capire l'errore, correggere e ritrasmettere.">L'INPS scarta il flusso Uniemens con un codice di errore</li>
+    <li data-giusta="macchina" data-perche="generazione di un flusso standard dai dati già calcolati.">Generare il flusso Uniemens del mese</li>
+    <li data-giusta="umano" data-perche="eccezione e relazione. Oggi risponde una persona; è uno dei bordi dove un assistente AI con accesso ai dati del cedolino può intervenire.">Una dipendente chiede perché il netto di questo mese è più basso</li>
+  </ul>
+</div>
+
+<div class="q" data-tipo="scelta" data-giusta="b">
+  <p class="q-prompt"><span class="num">3.</span>Un vendor annuncia: «il nostro nuovo motore calcola i cedolini dieci volte più in fretta». Quanti minuti umani per cedolino fa risparmiare?</p>
+  <ol class="q-options">
+    <li data-key="a" data-perche="Il calcolo non è dove va il tempo delle persone.">Molti, perché il calcolo è lo step più lento del ciclo</li>
+    <li data-key="b">Pochi, perché il calcolo è già svolto dalla macchina da anni</li>
+    <li data-key="c" data-perche="I controlli dipendono dalla qualità dell'input e dalle eccezioni, non dalla velocità del calcolo.">Molti, perché i controlli dopo il calcolo si riducono di conseguenza</li>
+    <li data-key="d" data-perche="Il professionista non firma ogni singolo calcolo; la riserva riguarda gli adempimenti e il giudizio.">Nessuno, perché ogni singolo calcolo deve comunque essere firmato dal consulente</li>
+  </ol>
+  <div class="q-spiega"><p>Il costo umano sta ai bordi. Un calcolo più veloce migliora la macchina dove la macchina è già brava.</p></div>
+</div>
+
+<div class="q" data-tipo="scelta" data-giusta="b">
+  <p class="q-prompt"><span class="num">4.</span>Un concorrente vende il cedolino a 10 €. Lo studio tipo ha un addetto da 300 cedolini al mese che costa 43.800 € l'anno, e 3,80 € di software a cedolino. Cosa succede?</p>
+  <ol class="q-options">
+    <li data-key="a" data-perche="43.800 € ÷ 3.600 cedolini fa circa 12 €: il personale da solo supera il prezzo.">Guadagna, perché il personale costa molto meno di dieci euro</li>
+    <li data-key="b">Perde, perché personale e software superano già i dieci euro</li>
+    <li data-key="c" data-perche="Il software è un costo che si somma al personale, non lo compensa.">Pareggia, perché il software compensa esattamente il costo del personale</li>
+    <li data-key="d" data-perche="Il volume alto aiuta solo se aumenta i cedolini per addetto; il consulente resta necessario.">Guadagna, perché ai volumi alti il consulente non lavora più</li>
+  </ol>
+  <div class="q-spiega"><p>12,18 € di personale più 3,80 € di software fanno circa 16 €, contro un prezzo di 10 €. Per stare in piedi a 10 € l'addetto dovrebbe fare circa 590 cedolini al mese, 14 minuti l'uno.</p></div>
+</div>
+
+<div class="q" data-tipo="scelta" data-giusta="a">
+  <p class="q-prompt"><span class="num">5.</span>Per che cosa, testualmente, la L. 12/1979 consente alle imprese di usare i centri di elaborazione dati (CED)?</p>
+  <ol class="q-options">
+    <li data-key="a">Operazioni di calcolo e stampa, e attività strumentali e accessorie</li>
+    <li data-key="b" data-perche="L'interpretazione è giudizio: resta al professionista.">Interpretazione dei contratti collettivi applicabili ai singoli dipendenti assunti dall'impresa</li>
+    <li data-key="c" data-perche="È esattamente ciò che l'art. 1 c. 1 riserva ai professionisti abilitati.">Tutti gli adempimenti di lavoro, previdenza e assistenza, senza professionista</li>
+    <li data-key="d" data-perche="La consulenza è attività del professionista, non del CED.">Consulenza su assunzioni, licenziamenti e vertenze, con la propria firma</li>
+  </ol>
+  <div class="q-spiega"><p>Art. 1 c. 5. E anche lì, il CED deve essere composto da professionisti iscritti, promosso da un'associazione di categoria o, per le imprese sopra i 250 addetti, assistito da un professionista. È il confine dentro cui un motore agentico può muoversi senza firma.</p></div>
+</div>
+
+<div class="q" data-tipo="scelta" data-giusta="c">
+  <p class="q-prompt"><span class="num">6.</span>Vuoi stimare i minuti umani per step in uno studio italiano. Qual è la fonte migliore oggi?</p>
+  <ol class="q-options">
+    <li data-key="a" data-perche="Misura il tempo per attività, ma in grandi aziende, nel 2020, fuori dall'Italia: è un ordine di grandezza.">Il report Deloitte, perché misura esattamente il tempo per attività</li>
+    <li data-key="b" data-perche="Sono fonti di parte: dicono cosa il vendor dichiara, non quanto succede in uno studio.">Le schede dei vendor, perché dichiarano quanto tempo fanno risparmiare</li>
+    <li data-key="c">Misure sul campo, osservando e intervistando gli studi dei consulenti</li>
+    <li data-key="d" data-perche="L'INPS vede i flussi che arrivano, non il lavoro che serve a produrli.">Le statistiche dell'INPS, perché riceve ogni mese tutti i flussi</li>
+  </ol>
+  <div class="q-spiega"><p>Il dato italiano non esiste in forma pubblica. È un vuoto e insieme un'opportunità: chi lo misura per primo ha un vantaggio nel modello dei costi e nella vendita ai consulenti.</p></div>
+</div>
+
+<div class="q" data-tipo="richiamo">
+  <p class="q-prompt"><span class="num">7.</span>Senza guardare sopra: quali sono le tre ragioni per cui uno step resta umano? Per ciascuna, un esempio dal ciclo paghe.</p>
+  <div class="q-modello">
+    <p><strong>Input sporco</strong>: il dato arriva da fuori incompleto o non strutturato. Le 6 ore di straordinario senza i giorni.</p>
+    <p><strong>Giudizio</strong>: serve interpretare norma o contratto, e la legge lo riserva al professionista. Gli arretrati di un rinnovo del CCNL.</p>
+    <p><strong>Eccezione</strong>: il caso esce dalla regola. Lo scarto dell'Uniemens, la domanda sul netto.</p>
+  </div>
+</div>
+
+<p class="punteggio" aria-live="polite"></p>
+
+<div class="box fonte">
+  <h3>Da leggere</h3>
+  <p><a href="https://www.newmoney.gr/wp-content/uploads/2021/04/us-deloitte-payroll-benchmarking-survey-report.pdf">Deloitte Global Payroll Benchmarking Survey</a>, pagine 12-18 e 29-34 (circa 15 minuti). È l'unico documento pubblico che misura come si divide il tempo del personale paghe, da dove nascono gli errori, quanto costa un cedolino e quanti dipendenti segue un addetto. Leggilo ricordando che il campione sono grandi aziende, non studi italiani.</p>
+  <p>Per il confine legale bastano due pagine: <a href="https://www.lavoro.gov.it/documenti-e-norme/normative/Documents/anniPrecedenti/19790111_L_12.pdf">L. 12/1979, articoli 1 e 2</a>, sul sito del Ministero del Lavoro.</p>
+</div>
+
+<div class="box domande">
+  <h3>Qualcosa non torna?</h3>
+  <p>Chiedimelo nella sessione: sono il tuo docente, e le domande sono il modo più rapido per fissare le cose. Per esempio: «che differenza c'è tra cedolino e LUL?», «cosa c'è dentro un Uniemens?», «perché gli eventi di malattia costano così tanto tempo?».</p>
+  <p>Quando hai finito gli esercizi, dimmi il punteggio e quali risposte ti hanno sorpreso: servono a decidere la lezione successiva.</p>
+</div>
+
+<nav class="navcorso" aria-label="Navigazione del corso">
+  <a href="../reference/mappa-ciclo-paghe.html">Scheda: mappa del ciclo paghe</a>
+  <a href="../reference/modello-costo-cedolino.html">Scheda: modello di costo del cedolino</a>
+  <span>Prossima lezione: in preparazione</span>
+</nav>
+
+</main>
+<script src="../assets/esercizi.js"></script>
+</body>
+</html>
