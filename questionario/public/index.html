@@ -1,0 +1,280 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Tempi e costi dell'elaborazione paghe</title>
+<link rel="icon" href="data:,">
+<link rel="stylesheet" href="/style.css">
+<script src="/app.js" defer></script>
+</head>
+<body>
+<main class="page">
+
+<header>
+  <h1>Tempi e costi dell'elaborazione paghe</h1>
+  <p class="lede">Un questionario anonimo per consulenti del lavoro e addetti paghe. Richiede circa 10 minuti, anche da telefono. Alla fine vedrà il costo per cedolino del Suo studio, confrontato con una stima di riferimento.</p>
+  <div class="info">
+    <p><strong>A cosa serve.</strong> È un'indagine sui tempi e sui costi del processo paghe: quali attività pesano di più e dove la tecnologia può ridurre il lavoro ripetitivo. Le risposte sono usate solo in forma aggregata.</p>
+    <p><strong>Anonimato.</strong> Non chiediamo il Suo nome, quello dello studio o dati dei lavoratori, e la pagina non usa cookie né strumenti di tracciamento. Le risposte vengono salvate senza indirizzo IP né altri dati del Suo dispositivo.</p>
+    <p><strong>Tutte le domande sono facoltative.</strong> Le stime approssimative vanno benissimo: più risponde, più il confronto finale è preciso. Le risposte restano salvate in questo browser finché non le invia, così può interrompere e riprendere.</p>
+  </div>
+  <p class="gia-inviato" id="gia-inviato" hidden></p>
+</header>
+
+<div class="avanzamento" aria-live="polite">
+  <span id="avanz-testo">Nessuna risposta ancora</span>
+  <div class="traccia"><div class="riempi" id="avanz-barra"></div></div>
+</div>
+
+<form id="q" autocomplete="off" novalidate>
+
+<div class="trappola" aria-hidden="true">
+  <label>Non compilare questo campo <input type="text" name="sito" tabindex="-1" autocomplete="off"></label>
+</div>
+
+<section class="sez">
+  <h2><span class="n">1</span>Il Suo studio</h2>
+  <p class="intro">Pochi dati di contesto, per leggere le altre risposte.</p>
+
+  <fieldset class="dom">
+    <legend>In quale area opera lo studio?</legend>
+    <div class="scelte">
+      <label><input type="radio" name="area" value="nord-ovest"> Nord-Ovest</label>
+      <label><input type="radio" name="area" value="nord-est"> Nord-Est</label>
+      <label><input type="radio" name="area" value="centro"> Centro</label>
+      <label><input type="radio" name="area" value="sud-isole"> Sud e Isole</label>
+    </div>
+  </fieldset>
+
+  <div class="campi">
+    <div class="dom">
+      <label class="q" for="ced_studio">Cedolini elaborati dallo studio in un mese tipo<span class="aiuto">Esclusi tredicesima e quattordicesima.</span></label>
+      <div class="unita"><input id="ced_studio" name="ced_studio" type="number" inputmode="numeric" min="1" max="100000" step="1"><span>al mese</span></div>
+      <span class="avviso" data-avviso="ced_studio"></span>
+    </div>
+    <div class="dom">
+      <label class="q" for="addetti">Persone che lavorano sulle paghe<span class="aiuto">In equivalenti a tempo pieno: due part-time al 50% fanno 1.</span></label>
+      <div class="unita"><input id="addetti" name="addetti" type="number" inputmode="decimal" min="0.5" max="500" step="0.5"><span>persone</span></div>
+      <span class="avviso" data-avviso="addetti"></span>
+    </div>
+    <div class="dom">
+      <label class="q" for="aziende">Aziende clienti con elaborazione paghe</label>
+      <div class="unita"><input id="aziende" name="aziende" type="number" inputmode="numeric" min="1" max="20000" step="1"><span>aziende</span></div>
+      <span class="avviso" data-avviso="aziende"></span>
+    </div>
+  </div>
+
+  <fieldset class="dom">
+    <legend>Quale software paghe usa lo studio?</legend>
+    <div class="scelte">
+      <label><input type="radio" name="software" value="zucchetti"> Zucchetti</label>
+      <label><input type="radio" name="software" value="teamsystem"> TeamSystem</label>
+      <label><input type="radio" name="software" value="sistemi"> Sistemi (JOB)</label>
+      <label><input type="radio" name="software" value="inaz"> Inaz</label>
+      <label><input type="radio" name="software" value="ranocchi"> Ranocchi</label>
+      <label><input type="radio" name="software" value="centro-paghe"> Centro Paghe</label>
+      <label><input type="radio" name="software" value="altro"> Altro</label>
+    </div>
+    <input type="text" class="campo-altro" name="software_altro" maxlength="80" aria-label="Altro software, quale?" placeholder="Se altro, quale?">
+  </fieldset>
+</section>
+
+<section class="sez">
+  <h2><span class="n">2</span>Quanto lavoro fa un addetto</h2>
+  <p class="intro">Pensi a un addetto paghe senior, autonomo sul ciclo completo.</p>
+
+  <div class="campi">
+    <div class="dom">
+      <label class="q" for="ced_addetto">Cedolini che gestisce in autonomia in un mese</label>
+      <div class="unita"><input id="ced_addetto" name="ced_addetto" type="number" inputmode="numeric" min="20" max="3000" step="10"><span>al mese</span></div>
+      <span class="avviso" data-avviso="ced_addetto"></span>
+    </div>
+    <div class="dom">
+      <label class="q" for="aziende_addetto">Aziende clienti che segue</label>
+      <div class="unita"><input id="aziende_addetto" name="aziende_addetto" type="number" inputmode="numeric" min="1" max="1000" step="1"><span>aziende</span></div>
+      <span class="avviso" data-avviso="aziende_addetto"></span>
+    </div>
+    <div class="dom">
+      <label class="q" for="quota_paghe">Quota del suo tempo dedicata alle paghe<span class="aiuto">Il resto va su consulenza, contabilità, segreteria o altro.</span></label>
+      <div class="unita"><input id="quota_paghe" name="quota_paghe" type="number" inputmode="numeric" min="10" max="100" step="5"><span>%</span></div>
+      <span class="avviso" data-avviso="quota_paghe"></span>
+    </div>
+  </div>
+</section>
+
+<section class="sez">
+  <h2><span class="n">3</span>Le attività del mese</h2>
+  <p class="intro">Per ogni attività, due cose: chi fa oggi il lavoro nel Suo studio, e che quota del tempo mensile dell'addetto assorbe. Le quote dovrebbero sommare a 100.</p>
+
+  <div class="step-tab" role="group" aria-label="Attività del ciclo paghe mensile">
+    <div class="step-intest" aria-hidden="true"><span>#</span><span>Attività</span><span>Chi fa il lavoro</span><span class="a-destra">Quota del tempo</span></div>
+    <div id="step-righe"></div>
+  </div>
+  <p class="somma" id="somma" aria-live="polite">Totale: 0%</p>
+</section>
+
+<section class="sez">
+  <h2><span class="n">4</span>I costi dello studio</h2>
+  <p class="intro">Servono a calcolare il costo di un cedolino. Le fasce bastano.</p>
+
+  <fieldset class="dom">
+    <legend>Retribuzione lorda annua di un addetto paghe senior</legend>
+    <div class="scelte">
+      <label><input type="radio" name="ral_fascia" value="meno-26"> Meno di 26.000 €</label>
+      <label><input type="radio" name="ral_fascia" value="26-30"> 26.000-30.000 €</label>
+      <label><input type="radio" name="ral_fascia" value="30-34"> 30.000-34.000 €</label>
+      <label><input type="radio" name="ral_fascia" value="34-38"> 34.000-38.000 €</label>
+      <label><input type="radio" name="ral_fascia" value="oltre-38"> Oltre 38.000 €</label>
+      <label><input type="radio" name="ral_fascia" value="nd"> Preferisco non rispondere</label>
+    </div>
+  </fieldset>
+
+  <fieldset class="dom">
+    <legend>Come paga il software paghe?</legend>
+    <div class="scelte">
+      <label><input type="radio" name="sw_formula" value="a-cedolino"> A cedolino elaborato</label>
+      <label><input type="radio" name="sw_formula" value="canone"> Canone fisso</label>
+      <label><input type="radio" name="sw_formula" value="per-utente"> Per utente</label>
+      <label><input type="radio" name="sw_formula" value="misto"> Formula mista</label>
+      <label><input type="radio" name="sw_formula" value="non-so"> Non lo so</label>
+    </div>
+  </fieldset>
+
+  <div class="campi">
+    <div class="dom">
+      <label class="q" for="sw_annuo">Spesa annua per il software paghe<span class="aiuto">Licenze, canoni e assistenza; esclusi hardware e altri gestionali.</span></label>
+      <div class="unita"><input id="sw_annuo" name="sw_annuo" type="number" inputmode="numeric" min="0" max="2000000" step="100"><span>€ l'anno</span></div>
+      <span class="avviso" data-avviso="sw_annuo"></span>
+    </div>
+    <div class="dom">
+      <label class="q" for="sw_cedolino">Oppure: costo del software per cedolino<span class="aiuto">Se lo conosce direttamente.</span></label>
+      <div class="unita"><input id="sw_cedolino" name="sw_cedolino" type="number" inputmode="decimal" min="0" max="50" step="0.1"><span>€</span></div>
+      <span class="avviso" data-avviso="sw_cedolino"></span>
+    </div>
+  </div>
+</section>
+
+<section class="sez">
+  <h2><span class="n">5</span>I prezzi ai clienti</h2>
+  <p class="intro">Prezzo medio mensile per cedolino, per dimensione del cliente. Lasci vuote le fasce che non ha.</p>
+
+  <div class="campi">
+    <div class="dom">
+      <label class="q" for="prezzo_micro">Micro<span class="aiuto">Da 1 a 5 dipendenti</span></label>
+      <div class="unita"><input id="prezzo_micro" name="prezzo_micro" type="number" inputmode="decimal" min="1" max="200" step="0.5"><span>€ a cedolino</span></div>
+      <span class="avviso" data-avviso="prezzo_micro"></span>
+    </div>
+    <div class="dom">
+      <label class="q" for="prezzo_piccola">Piccola<span class="aiuto">Da 6 a 15 dipendenti</span></label>
+      <div class="unita"><input id="prezzo_piccola" name="prezzo_piccola" type="number" inputmode="decimal" min="1" max="200" step="0.5"><span>€ a cedolino</span></div>
+      <span class="avviso" data-avviso="prezzo_piccola"></span>
+    </div>
+    <div class="dom">
+      <label class="q" for="prezzo_media">Media<span class="aiuto">Da 16 a 50 dipendenti</span></label>
+      <div class="unita"><input id="prezzo_media" name="prezzo_media" type="number" inputmode="decimal" min="1" max="200" step="0.5"><span>€ a cedolino</span></div>
+      <span class="avviso" data-avviso="prezzo_media"></span>
+    </div>
+    <div class="dom">
+      <label class="q" for="prezzo_grande">Oltre 50 dipendenti</label>
+      <div class="unita"><input id="prezzo_grande" name="prezzo_grande" type="number" inputmode="decimal" min="1" max="200" step="0.5"><span>€ a cedolino</span></div>
+      <span class="avviso" data-avviso="prezzo_grande"></span>
+    </div>
+  </div>
+
+  <fieldset class="dom">
+    <legend>Il prezzo del cedolino include la consulenza ordinaria?</legend>
+    <div class="scelte">
+      <label><input type="radio" name="prezzo_consulenza" value="si"> Sì</label>
+      <label><input type="radio" name="prezzo_consulenza" value="no"> No, si fattura a parte</label>
+      <label><input type="radio" name="prezzo_consulenza" value="dipende"> Dipende dal cliente</label>
+    </div>
+  </fieldset>
+</section>
+
+<section class="sez">
+  <h2><span class="n">6</span>Il consulente e le eccezioni</h2>
+  <p class="intro">Il lavoro che l'addetto non riesce a chiudere da solo.</p>
+
+  <div class="campi">
+    <div class="dom">
+      <label class="q" for="ore_titolare">Ore al mese che il consulente titolare dedica alle paghe<span class="aiuto">Controlli, casi dubbi, interpretazione dei contratti, risposte ai clienti.</span></label>
+      <div class="unita"><input id="ore_titolare" name="ore_titolare" type="number" inputmode="decimal" min="0" max="300" step="1"><span>ore al mese</span></div>
+      <span class="avviso" data-avviso="ore_titolare"></span>
+    </div>
+  </div>
+
+  <fieldset class="dom">
+    <legend>Le cause principali di rilavorazione<span class="aiuto">Ne scelga al massimo tre.</span></legend>
+    <div class="scelte colonna" id="cause">
+      <label><input type="checkbox" name="cause" value="dati-cliente"> Dati del cliente in ritardo o incompleti</label>
+      <label><input type="checkbox" name="cause" value="eventi-non-comunicati"> Eventi non comunicati (malattie, assunzioni, cessazioni)</label>
+      <label><input type="checkbox" name="cause" value="interpretazione-ccnl"> Interpretazione del CCNL, rinnovi e arretrati</label>
+      <label><input type="checkbox" name="cause" value="scarti-flussi"> Errori o scarti nei flussi (Uniemens, F24, UNILAV)</label>
+      <label><input type="checkbox" name="cause" value="domande-dipendenti"> Richieste di chiarimento dei dipendenti</label>
+      <label><input type="checkbox" name="cause" value="rettifiche"> Correzioni dopo l'emissione del cedolino</label>
+      <label><input type="checkbox" name="cause" value="software"> Limiti o errori del software</label>
+    </div>
+    <span class="avviso" id="avviso-cause"></span>
+  </fieldset>
+
+  <div class="dom">
+    <label class="q" for="nota">C'è un'attività che abbiamo dimenticato, o che nel Suo studio pesa molto più delle altre?</label>
+    <textarea id="nota" name="nota" maxlength="1500"></textarea>
+  </div>
+</section>
+
+</form>
+
+<section class="risultati" aria-labelledby="ris-titolo">
+  <h2 id="ris-titolo">Il Suo studio a confronto</h2>
+  <p class="intro">Si aggiorna mentre risponde. La stima di riferimento viene da fonti pubbliche e da ipotesi che questa indagine serve a verificare.</p>
+  <div class="tab-wrap">
+  <table class="confronto">
+    <thead><tr><th>Per cedolino</th><th class="v">Il Suo studio</th><th class="v">Stima di riferimento</th></tr></thead>
+    <tbody>
+      <tr><td>Cedolini al mese per addetto senior</td><td class="v" data-r="ced"></td><td class="v">300</td></tr>
+      <tr><td>Minuti di lavoro dell'addetto per cedolino</td><td class="v" data-r="min"></td><td class="v">28,3 min</td></tr>
+      <tr><td>Costo del personale per cedolino</td><td class="v" data-r="pers"></td><td class="v">12,18 €</td></tr>
+      <tr><td>Costo del software per cedolino</td><td class="v" data-r="sw"></td><td class="v">3,80 €</td></tr>
+      <tr><td>Costo diretto per cedolino</td><td class="v" data-r="dir"></td><td class="v">15,98 €</td></tr>
+      <tr><td>Prezzo medio ai clienti</td><td class="v" data-r="prezzo"></td><td class="v">10-25 €</td></tr>
+      <tr><td>Quanto resta per consulente, struttura e margine</td><td class="v" data-r="resto"></td><td class="v">da −5,98 a 9,02 €</td></tr>
+      <tr><td>Cedolini al mese per addetto a pareggio</td><td class="v" data-r="pareggio"></td><td class="v">da 173 a 590</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <div class="barre" id="barre-step" hidden>
+    <div class="titolo">Minuti per cedolino, attività per attività</div>
+    <div id="barre-righe"></div>
+    <div class="legenda"><span class="l-sw">Soprattutto software</span><span class="l-mi">Misto</span><span class="l-pe">Soprattutto una persona</span><span>Non indicato</span></div>
+  </div>
+  <p class="nota">Come calcoliamo: 1.700 ore lavorate l'anno; costo dello studio pari a 1,37 volte la retribuzione lorda (contributi e TFR); retribuzione al centro della fascia scelta; prezzo medio come media semplice delle fasce indicate. È un ordine di grandezza, non una contabilità.</p>
+</section>
+
+<section class="invio" aria-labelledby="invio-titolo">
+  <h2 id="invio-titolo">Inviare le risposte</h2>
+  <p>Quando ha finito, prema «Invia le risposte». Se in seguito cambia qualcosa, può correggere e inviare di nuovo da questo browser: la nuova versione sostituisce la precedente.</p>
+  <div class="azioni">
+    <button type="button" class="primario" id="b-invia">Invia le risposte</button>
+  </div>
+  <p class="esito" id="esito" role="status" aria-live="polite"></p>
+  <div class="grazie" id="grazie" hidden>
+    <p><strong>Risposte ricevute. Grazie per il tempo che ci ha dedicato.</strong></p>
+    <p>Codice della risposta: <span id="codice-mostrato"></span>. Non è collegato a Lei: serve solo a sostituire la risposta se la invia di nuovo.</p>
+  </div>
+  <div class="riserva" id="riserva" hidden>
+    <p>Se l'invio continua a non riuscire, copi le risposte e le mandi a chi Le ha dato il link.</p>
+    <div class="azioni"><button type="button" id="b-copia">Copia le risposte</button></div>
+    <details class="testo">
+      <summary>Vedi il testo delle risposte</summary>
+      <textarea id="testo" readonly aria-label="Testo delle risposte"></textarea>
+    </details>
+  </div>
+  <p class="cancella"><button type="button" class="leggero" id="b-cancella">Cancella le mie risposte da questo browser</button></p>
+</section>
+
+</main>
+</body>
+</html>

@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Risposte al questionario</title>
+<link rel="icon" href="data:,">
+<link rel="stylesheet" href="/style.css">
+<script src="/admin.js" defer></script>
+</head>
+<body>
+<main class="page">
+
+<header>
+  <h1>Risposte al questionario</h1>
+  <p class="lede">Area riservata: scarica le risposte e confronta le mediane con le ipotesi del modello di costo.</p>
+</header>
+
+<form id="accesso" class="dom" autocomplete="off">
+  <label class="q" for="token">Token di accesso<span class="aiuto">È il valore di ADMIN_TOKEN impostato su Vercel. Resta solo in questa scheda del browser.</span></label>
+  <input id="token" type="password" autocomplete="off" spellcheck="false">
+  <div class="azioni">
+    <button type="submit" class="primario">Vedi il riepilogo</button>
+    <button type="button" data-formato="csv">Scarica CSV</button>
+    <button type="button" data-formato="excel">Scarica per Excel</button>
+    <button type="button" data-formato="json">Scarica JSON</button>
+  </div>
+  <p class="esito" id="esito" role="status" aria-live="polite"></p>
+</form>
+
+<section id="riepilogo" class="risultati" hidden aria-labelledby="rie-titolo">
+  <h2 id="rie-titolo">Riepilogo</h2>
+  <p class="intro" id="rie-n"></p>
+
+  <div class="tab-wrap">
+    <table class="confronto">
+      <thead><tr><th>Parametro</th><th class="v">Mediana</th><th class="v">Modello</th><th class="v">Risposte</th></tr></thead>
+      <tbody id="tab-parametri"></tbody>
+    </table>
+  </div>
+
+  <h3>Le attività del mese</h3>
+  <div class="tab-wrap">
+    <table class="confronto">
+      <thead><tr><th>Attività</th><th class="v">Quota mediana</th><th class="v">Minuti mediani</th><th class="v">Software · misto · persona</th></tr></thead>
+      <tbody id="tab-step"></tbody>
+    </table>
+  </div>
+
+  <h3>Retribuzione dell'addetto senior</h3>
+  <div class="tab-wrap"><table class="confronto"><tbody id="tab-ral"></tbody></table></div>
+
+  <h3>Cause di rilavorazione</h3>
+  <div class="tab-wrap"><table class="confronto"><tbody id="tab-cause"></tbody></table></div>
+
+  <p class="nota">Stesse ipotesi della pagina del questionario: 1.700 ore l'anno, costo dello studio 1,37 × RAL, RAL al centro della fascia. Le quote di tempo sono riportate a 100 per ogni risposta prima di calcolare le mediane.</p>
+</section>
+
+<section class="invio" aria-labelledby="eli-titolo">
+  <h2 id="eli-titolo">Eliminare una risposta</h2>
+  <p>Per togliere una risposta di prova, o su richiesta di chi l'ha data e Le comunica il codice.</p>
+  <div class="campi">
+    <div class="dom">
+      <label class="q" for="codice">Codice della risposta</label>
+      <input id="codice" type="text" maxlength="8" autocomplete="off" spellcheck="false" placeholder="es. k7f3q2ab">
+    </div>
+  </div>
+  <div class="azioni"><button type="button" id="b-elimina">Elimina la risposta</button></div>
+  <p class="esito" id="esito-elimina" role="status" aria-live="polite"></p>
+</section>
+
+</main>
+</body>
+</html>

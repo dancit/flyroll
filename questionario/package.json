@@ -1,0 +1,13 @@
+{
+  "name": "questionario-paghe",
+  "private": true,
+  "type": "module",
+  "description": "Questionario anonimo per consulenti del lavoro su tempi e costi dell'elaborazione paghe",
+  "engines": {
+    "node": "24.x"
+  },
+  "scripts": {
+    "test": "node --test test/*.test.js",
+    "dev": "node dev/locale.js"
+  }
+}
